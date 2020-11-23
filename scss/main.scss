@@ -1,0 +1,140 @@
+// font
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;400;500;700&display=swap');
+
+
+// variable
+$primaryColor: #F35CA3;
+$secondaryColor: #AABDE6;
+$tertiaryColor: #C5ABDC;
+$textColor: #393C43;
+
+// mixin
+@mixin btn{
+        display: inline-block;
+        color: white;
+        background-color: $primaryColor;
+        border-radius: 2em;
+        padding: 0.5em 2em;
+        text-decoration: none;
+}
+
+
+// styles
+body {
+    
+    font-family: 'Montserrat', sans-serif;
+    &::before{
+        content: '';
+        background-image: url(../img/bg.png);
+        background-position: top right;
+        background-repeat: no-repeat;
+        background-size: 60vmax;
+        opacity: 0.8;
+        position: absolute;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+
+        @media screen and (max-width: 992px){
+            opacity: 0.4;
+        }
+    }
+}
+
+// nav
+.custom-nav {
+    .navbar-brand {
+        img {
+            width: 25px;
+            height: 25px;
+            margin-top: -7px;
+        }
+        span {
+            color: $primaryColor;
+            font-weight: 700;
+            font-size: 1.4rem;
+            margin-left: 0.4rem;
+        }
+    }
+
+
+    #navbarNav {
+        .navbar-nav {
+            .nav-link {
+                color: $primaryColor;
+                font-weight: 500;
+                text-transform: uppercase;
+                margin-left: 2.4em;
+                transition: .3s color ease;
+
+                &:hover{
+                    color:darken($primaryColor, $amount: 30%);
+                }
+            }
+
+            .sign-up-button {
+                @include btn;
+            }
+        }
+    }
+
+    @media screen and (max-width: 992px){
+        margin-top: -1em;
+    }
+}
+
+// custom section
+.custom-section {
+    margin-top: 10em;
+
+    h2 {
+        font-weight: 700;
+        font-size: 4rem;
+        line-height: 1;
+        color: $primaryColor;
+        white-space: nowrap;
+
+    }
+
+    h3{
+        font-weight: 400;
+        font-size: 3rem;
+        color: $secondaryColor;
+        white-space: nowrap;
+        line-height: 1;
+    }
+
+    p{
+        color: $textColor;
+        font-size: 1.1rem;
+        margin-top: 2em;
+    }
+
+    a{
+        
+        margin-top: 2.2em;
+        @include btn;
+        border: 1px solid transparent;
+        transition: .5s ease;
+
+        &:hover{
+            color: $primaryColor;
+            border: 1px solid $primaryColor;
+            background-color: transparent;
+        }
+    }
+
+    @media screen and (max-width: 992px){
+        margin-top: 3em ;
+        text-align: center;
+
+        h2, h3, p{
+            text-shadow: 1px 1px 2px rgba($textColor, 0.3);
+        }
+
+        h3 {
+            color: lighten($textColor, 10%)
+        }
+    }
+}
